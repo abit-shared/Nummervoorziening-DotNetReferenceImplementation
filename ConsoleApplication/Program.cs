@@ -60,7 +60,14 @@ namespace ConsoleNVAClient
         /// with the Nummervoorziening service.
         /// </summary>
         /// <param name="args">Optional parameters (not used)</param>
-        public static void Main(string[] args)
+        /// 
+
+        /*
+         Deze is als volgt opgebouwd: 0000000700099GP40146 (00000007000 + BRIN + laatste 5 cijfers van de OIN van het certificaat 40146).
+         Ik heb voor jullie een testschool gemaakt met BRIN 99GP, dit BRIN moet je dus meegeven in het OIN dat je stuurt in het Address: 0000000700099GP40146
+
+         */
+        public static void Main(string[] args)//0000000700012TB34567
         {
             // Disable SSL checks for now
             System.Net.ServicePointManager.ServerCertificateValidationCallback =

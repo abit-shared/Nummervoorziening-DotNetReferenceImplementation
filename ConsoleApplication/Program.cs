@@ -48,7 +48,7 @@ namespace ConsoleNVAClient
         /// <summary>
         /// An example PGN of a student
         /// </summary>
-        private static string _studentPgn = "063138219";
+        private static string _studentPgn = "498839436";
 
         /// <summary>
         /// An example PGN of a teacher
@@ -84,21 +84,32 @@ namespace ConsoleNVAClient
                 if (_eckIdServiceUtil.IsEckIdAvailable())
                 {
                     // Print some information about the service
-                    WritePingStatusOutput();
+                //    WritePingStatusOutput();
 
                     // List available chains
+               //     WriteAvailableChains();
+
+                    // List available sectors
+                //    WriteAvailableSectors();
+
+                    //--------------this is it for a student: --------------
                     WriteAvailableChains();
 
                     // List available sectors
                     WriteAvailableSectors();
 
-                    // Retrieve a Stampseudonym
+                    // Steps for student, start with Pgn, end with eck id
                     Console.WriteLine("\nRetrieving Stampseudonym:");
                     Console.WriteLine("Pgn:\t\t\t\t" + _studentPgn);
                     string studentHpgn = GenerateScryptHash(_studentPgn);
                     Console.WriteLine("HPgn:\t\t\t\t" + studentHpgn);
                     string studentStampseudonym = ExecuteCreateStampseudonymTest(studentHpgn);
                     Console.WriteLine("Retrieved Stampseudonym:\t" + studentStampseudonym + "\n");
+                    ExecuteCreateEckIdTest(studentStampseudonym, _chains[0].id, _sectors[0].id);
+                    //--------------END this is it for a student --------------
+
+
+
                     Console.WriteLine("Pgn:\t\t\t\t" + _teacherPgn);
                     string teacherHpgn = GenerateScryptHash(_teacherPgn);
                     Console.WriteLine("HPgn:\t\t\t\t" + teacherHpgn);
@@ -118,7 +129,7 @@ namespace ConsoleNVAClient
                     Console.WriteLine("Chain Guid:\t\t\t" + _chains[0].id);
                     Console.WriteLine("Sector Guid:\t\t\t" + _sectors[0].id);
                     
-                    ExecuteCreateEckIdTest(studentStampseudonym, _chains[0].id, _sectors[0].id);
+                    
                     ExecuteCreateEckIdTest(teacherStampseudonym, _chains[0].id, _sectors[0].id);
 
                     // Execute a batch operation for retrieving EckIDs

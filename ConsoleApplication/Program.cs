@@ -62,30 +62,7 @@
                 if (_eckIdServiceUtil.IsEckIdAvailable())
                 {
                     string testSet = "votestset-sb";
-                    Qtest7();
-
-                    // Execute a batch operation for retrieving Stampseudonyms
-                /*    Dictionary<int, string> listedHpgnDictionary = new Dictionary<int, string>();
-                    listedHpgnDictionary.Add(0, studentHpgn);
-                    listedHpgnDictionary.Add(1, teacherHpgn);
-
-                    Console.WriteLine("Submitting Stampseudonym batch (with the same input)");
-                    ExecuteStampseudonymBatchTest(listedHpgnDictionary);
-
-                    // Retrieve a EckID
-                    Console.WriteLine("\nRetrieving EckID for first active sector and first active chain:");
-                    Console.WriteLine("Chain Guid:\t\t\t" + _chains[0].id);
-                    Console.WriteLine("Sector Guid:\t\t\t" + _sectors[0].id);
-                    
-                    ExecuteCreateEckIdTest(teacherStampseudonym, _chains[0].id, _sectors[0].id);
-
-                    // Execute a batch operation for retrieving EckIDs
-                    Dictionary<int, string> listedStampseudonymDictionary = new Dictionary<int, string>();
-                    listedStampseudonymDictionary.Add(0, studentStampseudonym);
-                    listedStampseudonymDictionary.Add(1, teacherStampseudonym);
-
-                    Console.WriteLine("Submitting EckId batch (with the same input)");
-                    ExecuteEckIdBatchTest(_chains[0].id, _sectors[0].id, listedStampseudonymDictionary);*/
+                    Qtest1();
                 }
                 else
                 {
@@ -128,7 +105,6 @@
                 return testSet;
             }
         }
-
 
         private static void Qtest1()
         {
